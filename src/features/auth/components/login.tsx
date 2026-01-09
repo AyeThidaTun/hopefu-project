@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { supabase } from "@/supabaseClient"; // Import Supabase client
 
 import { z } from "zod";
@@ -33,7 +33,7 @@ type FormData = z.infer<typeof formSchema>;
 export function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const {
     register,
@@ -82,7 +82,7 @@ export function Login() {
       }
 
       // Navigate to dashboard or home
-      navigate("/profile");
+      window.location.href = "/profile";
     } catch (err) {
       setError("An unexpected error occurred. Please try again.");
       console.error("Login error:", err);
